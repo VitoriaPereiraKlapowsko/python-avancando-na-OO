@@ -21,17 +21,14 @@ class Programa:
         
 class Filme(Programa): #Herdando informações da classe Programa
     def __init__(self, nome, ano, duracao):
-        self._nome = nome.title() 
-        self.ano = ano
+        super().__init__(nome, ano) #Chamando o inicializador (__init__) da classe mãe (Programa)
         self.duracao = duracao
-        self._likes = 0
-    
+        
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
-        self._nome = nome.title()
-        self.ano = ano
+        super().__init__(nome, ano)
         self.temporadas = temporadas
-        self._likes = 0
+       
 
 vingadores = Filme('vigadores - guerra infinita', 2018, 160)
 vingadores.dar_like()

@@ -19,28 +19,27 @@ class Programa:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
         
-    def imprime(self):
-        print(f'{self._nome} - {self.ano} - {self._likes} Likes')
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self._likes} Likes'
         
 class Filme(Programa): #Herdando informações da classe Programa
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano) #Chamando o inicializador (__init__) da classe mãe (Programa), ou seja peguei informações que já tinham na classe Programa e juntei com as informações que tinham na classe Filme
         self.duracao = duracao
         
-    def imprime(self):
-        print(f'{self._nome} - {self.ano} - {self.duracao} min - {self._likes} Likes')
+    def __str__(self): #Definindo uma representação textual para o meu objeto 
+        return f'{self._nome} - {self.ano} - {self.duracao} min - {self._likes} Likes'
         
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
         
-    def imprime(self):
-        print(f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes')
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes'
        
 vingadores = Filme('vigadores - guerra infinita', 2018, 160)
 vingadores.dar_like()
-
 atlanta = Serie('atlanta', 2018, 2)
 atlanta.dar_like()
 atlanta.dar_like()
@@ -48,4 +47,4 @@ atlanta.dar_like()
 filmes_e_series = [vingadores, atlanta]
 
 for programa in filmes_e_series:
-    programa.imprime()
+    print(programa)
